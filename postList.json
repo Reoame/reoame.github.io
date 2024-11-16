@@ -1,0 +1,13 @@
+{
+    "labelColorDict": {
+        "英语": "#1296DC",
+        "All": "#000"
+    },
+    "post1": {
+        "postTitle": "如何区分“little”“a little”“few”“a few”",
+        "postUrl": "post/1.html",
+        "labels": ["英语"],
+        "dateLabelColor": "#BB4B00",
+        "createdDate": "2024-11-15"
+    }
+}
