@@ -121,6 +121,21 @@
             border-radius: 10px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
+        .tag {
+            display: inline-block;
+            padding: 0.5px;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            background-color: #1296DC;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .tag:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+
+        }
     </style>
 </head>
 <body>
@@ -153,6 +168,12 @@
             <div class="col-md-8">
                 <h3 class="pb-3 mb-4 font-italic border-bottom">最新文章</h3>
                 <div class="blog-post">
+                    <h2 class="blog-post-title">关于Github无法访问的解决办法</h2>
+                    <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
+                    <p>关于Github无法访问的解决办法</p>
+                    <a href="3.html" class="btn btn-primary">阅读更多</a>
+                </div>
+                <div class="blog-post">
                     <h2 class="blog-post-title">如何学习编程</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>如何学习编程</p>
@@ -172,6 +193,14 @@
                     <p>一名无聊的初中生</p>
                 </div>
                 <div class="aside-box">
+                    <h4 class="font-italic">标签</h4>
+                    <div class="fas fa-tag mr-1">Python</div>
+                    <div class="fas fa-tag mr-1">技术</div>
+                    <div class="fas fa-tag mr-1">Github</div>
+                    <div class="fas fa-tag mr-1">编程</div>
+                </div>
+                
+                <div class="aside-box">
                     <h4 class="font-italic">归档</h4>
                     <ol class="list-unstyled mb-0">
                         <li><a href="#">2025年1月</a>
@@ -187,17 +216,18 @@
     </div>
 
     <footer class="blog-footer">
-        <p>版权所有 © 2023 Reoame的博客</p>
+        <p>版权所有 © 2025 Reoame的博客</p>
         <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
     </footer>
-
     <script>
         function go(url) {
             window.location.href = url;
         }
+   
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
