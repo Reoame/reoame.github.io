@@ -1,0 +1,28 @@
+#R {
+    width:100px;
+    height:100px;
+    color:white;
+    background-color:#1296DC;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 50%;
+}
+
+.text {
+    position:absolute;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.item_1 {
+    width:27%;
+    height:390px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+}
+.leader {
+    display:flex;
+    justify-content:space-around;
+}

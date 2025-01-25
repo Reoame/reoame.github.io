@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友链 - Reoame的博客</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #1296DC, #87CEEB);
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .item_1 {
+            margin-bottom: 1rem;
+        }
+        .leader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .item {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #495057;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .item:hover {
+            background-color: #6c757d;
+            transform: scale(1.05);
+        }
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+        .text {
+            color: #007bff;
+        }
+        .body {
+            padding: 2rem;
+        }
+        .R {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: #1296DC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .friend-link {
+            margin-bottom: 1rem;
+        }
+        .friend-link h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .friend-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 400;
+        }
+        .friend-link a:hover {
+            text-decoration: underline;
+        }
+        .blog-footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="item_1">
+            <center>
+                <h1 class="R">R</h1>
+            </center>
+            <h1>Reoame</h1>
+            <p>Hello I'm Reoame, I want to make friends with you!</p>
+        </div>
+        <div class="leader">
+            <div class="item" onclick="go('index.html')">
+                <i class="fas fa-home"></i> 首页
+            </div>
+            <div class="item" onclick="go('link.html')">
+                <i class="fas fa-link"></i> 友链
+            </div>
+            <div class="item" onclick="go('https://reoame.github.io/home_page')">
+                <i class="fas fa-user"></i> 关于
+            </div>
+            <div class="item" onclick="go('https://www.github.com/Reoame/')">
+                <i class="fab fa-github"></i> 项目
+            </div>
+        </div>
+    </div>
+
+    <div class="container body">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">友链</h3>
+                <div class="friend-link">
+                    <h4>博客友链</h4>
+                    <p>以下是我的一些博客朋友，欢迎访问他们的网站：</p>
+                    <ul>
+                        <li><h3>暂时没有博客友链</h3></li>
+                    </ul>
+                    <h4>社交媒体</h4>
+                    <ul>
+                        <li><a href="https://www.zhihu.com/" target="_blank">知乎</a></li>
+                        <li><a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a></li>
+                        <li><a href="https://xiaohongshu.com/" target="_blank">小红书</a></li>
+                        <li><a href="https://www.toutiao.com/" target="_blank">头条</a></li>
+                        <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="col-md-4">
+                <div class="p-3 mb-3 bg-light rounded">
+                    <h4 class="font-italic">关于我</h4>
+                    <p>一名无聊的初中生</p>
+                </div>
+                <div class="p-3">
+                    <h4 class="font-italic">归档</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li><a href="#">2025年1月</a>
+                            <ul>
+                                <li><a href="2.html">如何学习编程</a></li>
+                                <li><a href="1.html">我的一个小发明</a></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="blog-footer">
+        <p>版权所有 © 2023 Reoame的博客</p>
+        <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+    </footer>
+
+    <script>
+        function go(url) {
+            window.location.href = url;
+        }
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
