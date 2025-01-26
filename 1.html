@@ -13,26 +13,34 @@
             background: linear-gradient(135deg, #1296DC, #87CEEB);
             color: #333;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
         .container {
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
         }
         .blog-post-title {
             font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 0.5rem;
         }
         .blog-post-meta {
             font-size: 1rem;
             color: #666;
+            margin-bottom: 1.5rem;
         }
         .btn-primary {
             background-color: #1296DC;
             border-color: #1296DC;
             font-weight: 500;
             transition: background-color 0.3s, transform 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
         .btn-primary:hover {
             background-color: #0056b3;
@@ -47,21 +55,30 @@
             border-radius: 10px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
+        .blog-footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        .blog-footer a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="blog-post-title">我的一个小发明</h1>
         <p class="blog-post-meta">2023年1月15日 by <a href="#" class="text-black">Reoame</a></p>
-        <p>这是一个基于Python开发的小程序，主要用于自动化处理一些日常任务。</p>
+        <p>这是一个基于Python开发的小程序，主要用于自动化处理一些日常任务。它可以帮助你节省时间，提高工作效率。</p>
+        <p>主要运用了python的GUI编程技术，使用Tkinter库进行GUI的设计。</p>
+        <p>你可以在GitHub上找到它的源码，也可以在我的博客中下载安装程序。</p>
         <p>目前支持的功能有：</p>
         <ul>
             <li>Markdown转换为HTML</li>
             <li>获取网页源码</li>
             <li>文本编辑器</li>
-            <li>python转exe</li>
-            <li>计算器</li>
-            <li>随机密码</li>
+            <li>Python代码转换为可执行文件（exe）</li>
+            <li>简单计算器</li>
+            <li>随机密码生成器</li>
             <li>取色器</li>
             <li>投硬币</li>
             <li>投骰子</li>
@@ -70,7 +87,6 @@
         <p>以下是程序的一些主要运行条件：</p>
         <ul>
             <li>运行系统：Windows</li>
-            
         </ul>
         <p>如果你对这个项目感兴趣，可以在我的GitHub仓库中查看完整的代码。</p>
         <a href="https://github.com/Reoame/Pyertool" target="_blank" class="btn btn-primary">查看代码</a>
