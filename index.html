@@ -200,6 +200,9 @@
         .days div.today {
             border: 2px solid #87CEEB;
         }
+        * {
+            border:0;
+        }
     </style>
 </head>
 <body>
@@ -239,6 +242,13 @@
             <div class="col-md-8">
                 <h3 class="pb-3 mb-4 font-italic border-bottom">最新文章</h3>
                 <div class="blog-post">
+                    <h2 class="blog-post-title">Github部署静态网页</h2>
+                    <p class="blog-post-meta">2025年1月16日 by <a href="#" class="text-black">Reoame</a></p>
+                    <p>Github部署静态网页</p>
+                    <div class="post-tag">Github</div>
+                    <a href="4.html" class="btn btn-primary">阅读更多</a>
+                </div>
+                <div class="blog-post">
                     <h2 class="blog-post-title">关于Github无法访问的解决办法</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>关于Github无法访问的解决办法</p>
@@ -254,15 +264,8 @@
                     <div class="post-tag">编程</div>
                     <a href="2.html" class="btn btn-primary">阅读更多</a>
                 </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title">我的一个小发明</h2>
-                    <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
-                    <p>一个基于python开发的小程序</p>
-                    <div class="post-tag">Python</div>
-                    <a href="1.html" class="btn btn-primary">阅读更多</a>
-                </div>
                 <hr>
-                <div class="next" onclick="go('index2.html')">下一页</div>
+                <button class="next" onclick="go('index2.html')">→</button>
             </div>
             <aside class="col-md-4">
                 <div class="aside-box">
@@ -308,6 +311,15 @@
                         </div>
                         <div class="days" id="calendar-days"></div>
                     </div> 
+                    <div class="aside-box">
+                        
+                        <br>
+                        <noscript>
+                            <h2>温馨提示</h2>
+                            <br>
+                            请启用JavaScript
+                        </noscript>
+                    </div>
                 </div>
             </aside>
         </div>
@@ -377,10 +389,11 @@
                 console.log(`Selected date: ${selectedDate.toDateString()}`);
             }
         });
+    
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+      
 </body>
 </html>
