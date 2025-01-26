@@ -136,6 +136,70 @@
             transform: scale(1.05);
 
         }
+        .calendar {
+            width: 300px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #1296DC, #87CEEB);
+            color: #fff;
+        }
+        .calendar-header span {
+            cursor: pointer;
+        }
+        .month-year {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            padding: 10px;
+        }
+        .days div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .post-tag {
+            display: inline-block;
+            padding: 0.5px;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            background-color: #1296DC;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .post-tag:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            font-weight: bold;
+
+        }
+        .days div:hover {
+            background: #f0f0f0;
+        }
+        .days div.selected {
+            background: linear-gradient(135deg, #1296DC, #87CEEB);
+            color: #fff;
+        }
+        .days div.today {
+            border: 2px solid #87CEEB;
+        }
     </style>
 </head>
 <body>
@@ -147,6 +211,7 @@
             <h1 style="color:#333">Reoame</h1>
             <p style="color:#333">Hello I'm Reoame, I want to make friends with you!</p>
         </div>
+        
         <div class="leader">
             <div class="item" onclick="go('index.html')">
                 <i class="fas fa-home"></i> 首页
@@ -171,26 +236,32 @@
                     <h2 class="blog-post-title">关于Github无法访问的解决办法</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>关于Github无法访问的解决办法</p>
+                    
+                    
+                    <div class="post-tag">Github</div>
                     <a href="3.html" class="btn btn-primary">阅读更多</a>
                 </div>
                 <div class="blog-post">
                     <h2 class="blog-post-title">如何学习编程</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>如何学习编程</p>
+                    <div class="post-tag">编程</div>
                     <a href="2.html" class="btn btn-primary">阅读更多</a>
                 </div>
                 <div class="blog-post">
                     <h2 class="blog-post-title">我的一个小发明</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>一个基于python开发的小程序</p>
+                    <div class="post-tag">Python</div>
                     <a href="1.html" class="btn btn-primary">阅读更多</a>
                 </div>
                 <hr>
+                <div class="next" onclick="go('index2.html')">下一页</div>
             </div>
             <aside class="col-md-4">
                 <div class="aside-box">
                     <h4 class="font-italic">关于我</h4>
-                    <p>一名无聊的初中生</p>
+                    <p>一名广东广州的学生，热爱编程，喜欢分享，希望能与你交流！</p>
                 </div>
                 <div class="aside-box">
                     <h4 class="font-italic">标签</h4>
@@ -212,19 +283,93 @@
                         </li>
                     </ol>
                 </div>
+                <div class="aside-box">
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <span id="prev-month" class="fa fa-arrow-circle-o-left">←</span>
+                            <div class="month-year" id="month-year"></div>
+                            <span id="next-month" class="fa fa-arrow-circle-o-right">→</span>
+                        </div>
+                        <div class="days">
+                            <div>日</div>
+                            <div>一</div>
+                            <div>二</div>
+                            <div>三</div>
+                            <div>四</div>
+                            <div>五</div>
+                            <div>六</div>
+                        </div>
+                        <div class="days" id="calendar-days"></div>
+                    </div> 
+                </div>
             </aside>
         </div>
     </div>
 
     <footer class="blog-footer">
         <p>版权所有 © 2025 Reoame的博客</p>
-        <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+        <p>访问可能有点慢</p>
     </footer>
     <script>
         function go(url) {
             window.location.href = url;
         }
-   
+        const calendarDays = document.getElementById("calendar-days");
+        const monthYear = document.getElementById("month-year");
+        const prevMonth = document.getElementById("prev-month");
+        const nextMonth = document.getElementById("next-month");
+
+        let currentDate = new Date();
+
+        function renderCalendar(year, month) {
+            const firstDay = new Date(year, month).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            const date = new Date(year, month, 1);
+            const today = new Date();
+            const todayDate = today.getDate();
+            const todayMonth = today.getMonth();
+            const todayYear = today.getFullYear();
+
+            calendarDays.innerHTML = "";
+            for (let i = 0; i < firstDay; i++) {
+                const dayDiv = document.createElement("div");
+                calendarDays.appendChild(dayDiv);
+            }
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayDiv = document.createElement("div");
+                dayDiv.textContent = i;
+                if (i === todayDate && month === todayMonth && year === todayYear) {
+                    dayDiv.classList.add("today");
+                }
+                calendarDays.appendChild(dayDiv);
+            }
+
+            monthYear.textContent = `${year}年${month + 1}月`;
+        }
+
+        renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+
+        prevMonth.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        });
+
+        nextMonth.addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        });
+
+        calendarDays.addEventListener("click", (e) => {
+            if (e.target.tagName === "DIV") {
+                const selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), e.target.textContent);
+                const selectedDayDivs = document.querySelectorAll("#calendar-days div");
+                selectedDayDivs.forEach((div) => div.classList.remove("selected"));
+                e.target.classList.add("selected");
+                console.log(`Selected date: ${selectedDate.toDateString()}`);
+            }
+        });
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>

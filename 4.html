@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github部署静态网页 - Reoame的博客</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #1296DC, #87CEEB);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .blog-post-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .blog-post-meta {
+            font-size: 1rem;
+            color: #666;
+        }
+        .btn-primary {
+            background-color: #1296DC;
+            border-color: #1296DC;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .blog-footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2 class="blog-post-title">Github部署静态网页</h2>
+    <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
+   <p>Github Pages是一个免费的静态网站托管服务，可以直接从Github仓库托管的静态网页生成一个网站。下面介绍一下如何使用Github Pages部署静态网页。</p>
+   <h3>准备工作</h3>
+   <p>首先，你需要一个Github账号，如果没有，请先注册一个。然后，你需要一个Github仓库，用来存放你的静态网页文件。你可以在Github上创建一个新的仓库，或者使用已有的仓库。</p>
+   <h3>配置Github Pages</h3>
+   <p>进入你的仓库，点击Settings，然后找到GitHub Pages，选择Source的Branch为master，然后点击Save。这样，你的仓库就已经可以被Github Pages托管了。</p>
+   <h3>上传静态网页文件</h3>
+   <p>将你的静态网页文件上传到你的仓库的master分支上。你可以直接将文件拖拽到仓库的README.md文件上，也可以在仓库的根目录下新建一个index.html文件，然后将你的静态网页文件上传到这个文件上。</p>
+   <h3>访问你的静态网页</h3>
+   <p>当你的仓库被Github Pages托管后，你可以通过https://你的Github用户名.github.io/仓库名/访问你的静态网页。例如，我的静态网页的访问地址是https://reoame.github.io/</p>
+   <p>当然，你也可以通过自定义域名来访问你的静态网页，具体方法请参考Github Pages官方文档。</p>
+   <h3>注意事项</h3>
+   
+   <h5>1. 静态网页文件名</h5>
+   <p>你的静态网页的主页文件名必须为index.html，否则Github Pages无法识别。</p>
+    <h5>2. 不用着急</h5>
+    <p>在上传好网页文件后，Github Pages会自动生成一个临时域名，这个域名在一段时间内（大概10分钟）会失效。所以，你可能需要耐心等待一段时间，才能访问你的静态网页。</p>
+    <h5>3. 域名绑定</h5>
+    <p>如果你有自己的域名，你可以将你的域名与你的静态网页绑定。具体方法请参考Github Pages官方文档。</p>
+    <h5>4. SSL证书</h5>
+    <p>Github Pages默认使用Let's Encrypt提供SSL证书，所以你的静态网页已经是安全的。如果你需要使用自己的SSL证书，可以参考Github Pages官方文档。</p>
+    <h5>5. 其他服务</h5>
+    <p>Github Pages只是一个静态网站托管服务，它并不提供数据库、服务器等其他服务，不支持Python、PHP、Ruby等动态语言（除非你自己购买服务器）。如果需要其他服务，可以考虑使用其他云服务商（不建议选择不知名的云服务器厂商，因为可能会遇到各种问题，并且也不能保证用户隐私安全）。</p>
+    <h5>6. 访问速度</h5>
+    <p>Github Pages的访问速度取决于你的静态网页文件大小、访问地理位置、Github Pages服务器的性能。所以，你可能需要耐心等待一段时间，才能访问你的静态网页。</p>
+    <h3>补充说明</h3>
+    <p>仓库名可以是【你的用户名.github.io】，也可以是【你的项目名】。如果你的仓库名是【你的用户名.github.io】，那么你的静态网页的访问地址就是https://你的用户名.github.io/。如果你的仓库名是【你的项目名】，那么你的静态网页的访问地址就是https://你的用户名.github.io/你的项目名/。</p>
+   <h3>总结</h3>
+   <p>通过Github Pages部署静态网页，可以快速、免费、简单地搭建一个个人博客或个人网站。如果你有兴趣，可以尝试一下，看看它是否满足你的需求。</p>
+</div>
+    <footer class="blog-footer">
+        <p>版权所有 © 2025 Reoame的博客</p>
+        <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+    </footer>
+</body>
+</html>
