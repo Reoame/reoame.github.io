@@ -3,219 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Reoame的博客|一个分享技术的地方">
     <title>Reoame的博客</title>
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(135deg, #1296DC, #87CEEB);
-            color: #333;
-            line-height: 1.6;
-        }
-        .header {
-            background-color: #343a40;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .item_1 {
-            margin-bottom: 1rem;
-            width:auto;
-            
-        }
-        .leader {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .item {
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #495057;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .item:hover {
-            background-color: #6c757d;
-            transform: scale(1.05);
-        }
-        .header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
-        .header p {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-        .text {
-            color: #007bff;
-        }
-        .body {
-            padding: 2rem;
-        }
-        .R {
-            width: 100px;
-            height: 100px;
-            color: white;
-            background-color: #1296DC;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-        }
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-        }
-        .blog-post {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
-        .blog-post-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        .blog-post-meta {
-            font-size: 1rem;
-            color: #666;
-        }
-        .btn-primary {
-            background-color: #1296DC;
-            border-color: #1296DC;
-            font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-        .aside-box {
-            background: #f9f9f9;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .aside-box h4 {
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-        .blog-footer {
-            background-color: #343a40;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .tag {
-            display: inline-block;
-            padding: 0.5px;
-            margin: 0 0.5rem;
-            border-radius: 5px;
-            background-color: #1296DC;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .tag:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-
-        }
-        .calendar {
-            width: 300px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            background: linear-gradient(135deg, #1296DC, #87CEEB);
-            color: #fff;
-        }
-        .calendar-header span {
-            cursor: pointer;
-        }
-        .month-year {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            padding: 10px;
-        }
-        .days div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            border: 1px solid #ddd;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .post-tag {
-            display: inline-block;
-            padding: 0.5px;
-            margin: 0 0.5rem;
-            border-radius: 5px;
-            background-color: #1296DC;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .post-tag:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-            font-weight: bold;
-
-        }
-        .days div:hover {
-            background: #f0f0f0;
-        }
-        .days div.selected {
-            background: linear-gradient(135deg, #1296DC, #87CEEB);
-            color: #fff;
-        }
-        .days div.today {
-            border: 2px solid #87CEEB;
-        }
-        * {
-            border:0;
-        }
+      
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="item_1">
+        <div class="item_1 fade-in">
             <center>
                 <h1 class="R">R</h1>
             </center>
             <h1 style="color:#333">Reoame</h1>
             <p style="color:#333">Hello I'm Reoame, I want to make friends with you!</p>
         </div>
-        
-        <div class="leader">
+        <div class="leader fade-in">
             <div class="item" onclick="go('index.html')">
                 <i class="fas fa-home"></i> 首页
             </div>
@@ -240,55 +48,54 @@
     <div class="container body">
         <div class="row">
             <div class="col-md-8">
-                <h3 class="pb-3 mb-4 font-italic border-bottom">最新文章</h3>
-                <div class="blog-post">
+                <h3 class="pb-3 mb-4 font-italic border-bottom fade-in">最新文章</h3>
+                <div class="blog-post fade-in">
                     <h2 class="blog-post-title">Github部署静态网页</h2>
                     <p class="blog-post-meta">2025年1月16日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>Github部署静态网页</p>
                     <div class="post-tag">Github</div>
-                    <a href="4.html" class="btn btn-primary">阅读更多</a>
+                    <a href="#" class="btn btn-primary">阅读更多</a>
                 </div>
-                <div class="blog-post">
+                <div class="blog-post fade-in">
                     <h2 class="blog-post-title">关于Github无法访问的解决办法</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>关于Github无法访问的解决办法</p>
-                    
-                    
                     <div class="post-tag">Github</div>
-                    <a href="3.html" class="btn btn-primary">阅读更多</a>
+                    <a href="#" class="btn btn-primary">阅读更多</a>
                 </div>
-                <div class="blog-post">
+                <div class="blog-post fade-in">
                     <h2 class="blog-post-title">如何学习编程</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>如何学习编程</p>
                     <div class="post-tag">编程</div>
-                    <a href="2.html" class="btn btn-primary">阅读更多</a>
+                    <a href="#" class="btn btn-primary">阅读更多</a>
                 </div>
                 <hr>
-                <button class="next" onclick="go('index2.html')">→</button>
+                <div class="text-center fade-in">
+                    <button class="btn btn-primary" onclick="go('index2.html')">→</button>
+                </div>
             </div>
-            <aside class="col-md-4">
+            <aside class="col-md-4 fade-in">
                 <div class="aside-box">
                     <h4 class="font-italic">关于我</h4>
                     <p>一名广东广州的学生，热爱编程，喜欢分享，希望能与你交流！</p>
                 </div>
                 <div class="aside-box">
                     <h4 class="font-italic">标签</h4>
-                    <div class="fas fa-tag mr-1">Python</div>
-                    <div class="fas fa-tag mr-1">技术</div>
-                    <div class="fas fa-tag mr-1">Github</div>
-                    <div class="fas fa-tag mr-1">编程</div>
+                    <div class="tag">Python</div>
+                    <div class="tag">技术</div>
+                    <div class="tag">Github</div>
+                    <div class="tag">编程</div>
                 </div>
-                
                 <div class="aside-box">
                     <h4 class="font-italic">归档</h4>
                     <ol class="list-unstyled mb-0">
                         <li><a href="#">2025年1月</a>
                             <ul>
-                                <li><a href="4.html">Github部署静态网页</a></li>
-                                <li><a href="3.html">关于Github无法访问的解决办法</a></li>
-                                <li><a href="2.html">如何学习编程</a></li>
-                                <li><a href="1.html">我的一个小发明</a></li>
+                                <li><a href="#">Github部署静态网页</a></li>
+                                <li><a href="#">关于Github无法访问的解决办法</a></li>
+                                <li><a href="#">如何学习编程</a></li>
+                                <li><a href="#">我的一个小发明</a></li>
                             </ul>
                         </li>
                     </ol>
@@ -311,21 +118,12 @@
                         </div>
                         <div class="days" id="calendar-days"></div>
                     </div> 
-                    <div class="aside-box">
-                        
-                        <br>
-                        <noscript>
-                            <h2>温馨提示</h2>
-                            <br>
-                            请启用JavaScript
-                        </noscript>
-                    </div>
                 </div>
             </aside>
         </div>
     </div>
 
-    <footer class="blog-footer">
+    <footer class="blog-footer fade-in">
         <p>版权所有 © 2025 Reoame的博客</p>
         <p>访问可能有点慢</p>
     </footer>
@@ -389,11 +187,9 @@
                 console.log(`Selected date: ${selectedDate.toDateString()}`);
             }
         });
-    
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      
 </body>
 </html>
