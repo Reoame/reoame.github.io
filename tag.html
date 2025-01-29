@@ -21,6 +21,16 @@
                 opacity: 1;
             }
         }
+        .today {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+        }
+        .selected {
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -57,27 +67,7 @@
     <div class="container body">
         <div class="row">
             <div class="col-md-8">
-                <h3 class="pb-3 mb-4 font-italic border-bottom fade-in">分类: 技术</h3>
-            
-                <div class="blog-post fade-in">
-                    <h2 class="blog-post-title">如何学习编程</h2>
-                    <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
-                    <p>编程是一项非常有用的技能，无论你是想进入技术行业，还是仅仅想提升自己的逻辑思维能力，学习编程都是一个不错的选择。</p>
-                    <div class="post-tag">编程</div>
-                    <a href="#" class="btn btn-primary">阅读更多</a>
-                </div>
-                <div class="blog-post fade-in">
-                    <h2 class="blog-post-title">我的一个小发明</h2>
-                    <p class="blog-post-meta">2025年1月14日 by <a href="#" class="text-black">Reoame</a></p>
-                    <p>最近我做了一个小发明，想分享给大家...</p>
-                    <div class="post-tag">发明</div>
-                    <a href="#" class="btn btn-primary">阅读更多</a>
-                </div>
-        
-                <hr>
-                <div class="text-center fade-in">
-                    <button class="btn btn-primary" onclick="go('index2.html')">→</button>
-                </div>
+                <!-- 文章内容将在这里动态渲染 -->
             </div>
             <aside class="col-md-4 fade-in">
                 <div class="aside-box">
@@ -85,6 +75,7 @@
                     <p>一名广东广州的学生，热爱编程，喜欢分享，希望能与你交流！</p>
                 </div>
                
+                <div class="aside-box">
                     <h4 class="font-italic">归档</h4>
                     <ol class="list-unstyled mb-0">
                         <li><a href="#">2025年1月</a>
@@ -122,23 +113,20 @@
 
     <footer class="blog-footer fade-in">
         <p>版权所有 © 2025 Reoame的博客</p>
-        <p>访问可能有点慢</p>
+        <p>访问访问有点慢</p>
     </footer>
     <script>
         function go(url) {
             window.location.href = url;
         }
 
-        // 获取URL中的tag参数
         function getTagFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get('tag');
         }
 
-        // 根据tag参数渲染不同的分类内容
         function renderCategoryContent() {
             const tag = getTagFromUrl();
-            const titleElement = document.querySelector('.col-md-8 h3');
             const postsContainer = document.querySelector('.col-md-8');
 
             // 清空现有的文章
@@ -146,13 +134,11 @@
 
             // 示例数据，实际应用中可以从服务器获取
             const posts = [
-        
-            { title: "我的一个小发明", date: "2025年1月14日", author: "Reoame", content: "最近我做了一个小发明，想分享给大家...", tag: "Python" },
-                { title: "如何学习编程", date: "2025年1月15日", author: "Reoame", content: "编程是一项非常有用的技能，无论你是想进入技术行业，还是仅仅想提升自己的逻辑思维能力，学习编程都是一个不错的选择。", tag: "编程" },
-                { title: "我的一个小发明", date: "2025年1月14日", author: "Reoame", content: "最近我做了一个小发明，想分享给大家...", tag: "发明" },
-                { title: "Github部署静态网页", date: "2025年1月16日", author: "Reoame", content: "Github部署静态网页", tag: "Github" },
-                { title: "关于Github无法访问的解决办法", date: "2025年1月15日", author: "Reoame", content: "关于Github无法访问的解决办法", tag: "Github" },
-                { title: "AI的未来发展", date: "2025年1月13日", author: "Reoame", content: "AI技术正在快速发展，未来会有更多的应用场景...", tag: "AI" },
+                { title: "我的一个小发明", date: "2025年1月14日", author: "Reoame", content: "最近我做了一个小发明，想分享给大家...", tag: "Python", url: "1.html" },
+                { title: "如何学习编程", date: "2025年1月15日", author: "Reoame", content: "编程是一项非常有用的技能，无论你是想进入技术行业，还是仅仅想提升自己的逻辑思维能力，学习编程都是一个不错的选择。", tag: "编程", url: "2.html" },
+                { title: "Github部署静态网页", date: "2025年1月16日", author: "Reoame", content: "Github部署静态网页", tag: "Github", url: "4.html" },
+                { title: "关于Github无法访问的解决办法", date: "2025年1月15日", author: "Reoame", content: "关于Github无法访问的解决办法", tag: "Github", url: "3.html" },
+                { title: "AI的未来发展", date: "2025年1月13日", author: "Reoame", content: "AI技术正在快速发展，未来会有更多的应用场景...", tag: "AI", url: "5.html" },
             ];
 
             // 过滤出对应标签的文章
@@ -167,7 +153,7 @@
                     <p class="blog-post-meta">${post.date} by <a href="#" class="text-black">${post.author}</a></p>
                     <p>${post.content}</p>
                     <div class="post-tag">${post.tag}</div>
-                    <a href="#" class="btn btn-primary">阅读更多</a>
+                    <a href="#" class="btn btn-primary" onclick="go('${post.url}')">阅读更多</a>
                 `;
                 postsContainer.appendChild(postElement);
             });
@@ -233,7 +219,7 @@
         });
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
