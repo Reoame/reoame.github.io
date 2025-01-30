@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,128 +8,169 @@
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
+        :root {
+            --primary-color: #1296DC;
+            --secondary-color: #0056b3;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --header-bg-color: #343a40;
+            --footer-bg-color: #343a40;
+        }
+
         body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background: linear-gradient(135deg, #1296DC, #87CEEB);
-    color: #333;
-    line-height: 1.6;
-}
-.header {
-    background-color: #343a40;
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.item {
-    margin: 0 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #495057;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.item:hover {
-    background-color: #6c757d;
-    transform: scale(1.05);
-}
-.header h1 {
-    font-size: 3rem;
-    font-weight: 700;
-}
-.header p {
-    font-size: 1.5rem;
-    font-weight: 300;
-}
-.R {
-    width: 100px;
-    height: 100px;
-    color: white;
-    background-color: #1296DC;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 0 auto;
-}
-.container {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-}
-.blog-post {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-}
-.blog-post-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-.blog-post-meta {
-    font-size: 1rem;
-    color: #666;
-}
-.btn-primary {
-    background-color: #1296DC;
-    border-color: #1296DC;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.btn-primary:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-.aside-box {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-}
-.aside-box h4 {
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-.blog-footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-.tag {
-    display: inline-block;
-    padding: 0.5px;
-    margin: 0 0.5rem;
-    border-radius: 5px;
-    background-color: #1296DC;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-.tag:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), #87CEEB);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+     .header {
+            background-color: var(--header-bg-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+     .item {
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #495057;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+     .item:hover {
+            background-color: #6c757d;
+            transform: scale(1.05);
+        }
+
+     .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+     .header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+     .R {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+        }
+
+     .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+     .blog-post {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+     .blog-post-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+     .blog-post-meta {
+            font-size: 1rem;
+            color: #666;
+        }
+
+     .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+     .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+     .aside-box {
+            background: var(--bg-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+     .aside-box h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+     .blog-footer {
+            background-color: var(--footer-bg-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+     .tag {
+            display: inline-block;
+            padding: 0.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+     .tag:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+     .blockquote {
+            background-color: var(--bg-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+     .project {
+            padding: 1rem;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="item_1">
             <center>
-                <h1 class="R">R</h1>
+                <div class="R">
+                    <h1>R</h1>
+                </div>
             </center>
-            <h1 style="color:#333">Reoame</h1>
-            <p style="color:#333">Hello I'm Reoame, I want to make friends with you!</p>
+            <h1 style="color: white;">Reoame</h1>
+            <p style="color:white;">Hello I'm Reoame, I want to make friends with you!</p>
         </div>
         <div class="leader">
             <div class="item" onclick="go('index.html')">
@@ -139,13 +181,13 @@
             </div>
             <div class="item" onclick="go('about.html')">
                 <i class="fas fa-user"></i> 关于
-            </div>     
+            </div>
             <div class="item" onclick="go('https://github.com/Reoame/reoame.github.io/issues/1')">
                 <i class="fa fa-comment"></i> 留言板
             </div>
             <div class="item" onclick="go('nav.html')">
                 <i class="fa fa-globe"></i> 导航站
-            </div>  
+            </div>
             <div class="item" onclick="go('sitemap.html')">
                 <i class="fa fa-map"></i> 站点地图
             </div>
@@ -160,13 +202,24 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="project">
-                    <h3>Python 小程序</h3>
-                    <p>这是一个基于 Python 开发的小程序</p>
+                    <h3>Pyertool</h3>
+                    <p>这是一个基于 Python 开发的小程序，类似于一个工具箱</p>
+                    <blockquote>提示：本项目仅供学习交流使用，请勿用于商业用途！
+                        如有发现有未经允许的使用，请联系本人删除！
+                    </blockquote>
+                    <h3>关于这个项目</h3>
+                    <p>开发者：Reoame</p>
+                    <p>项目名称：Pyertool</p>
+                    <p>在一个无聊的假期我闲着没事干，就想着写一个小工具，于是就有了这个项目。</p>
+                    <p>这个项目的初衷是为了方便自己使用，所以没有做太多的功能，目前只实现了一个工具箱，里面有一些常用的小工具。</p>
+                    <p>后续会陆续添加更多的功能，欢迎大家提出宝贵意见。</p>
+                    <h3>项目地址</h3>
+                    <p>项目地址：<a href="https://github.com/Reoame/Pyertool">https://github.com/Reoame/Pyertool</a></p>
                     <a href="https://github.com/Reoame/Pyertool" class="btn btn-primary">查看项目</a>
                 </div>
             </div>
             <div class="col-md-6">
-                
+
             </div>
         </div>
     </div>
@@ -181,4 +234,5 @@
         }
     </script>
 </body>
+
 </html>

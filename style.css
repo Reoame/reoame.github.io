@@ -114,6 +114,25 @@ body {
     margin: 0 auto;
     transition: transform 0.5s ease;
 }
+#text {
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+.R_1 {
+    width: 30px;
+    height: 30px;
+    color: white;
+    background-color: #1296DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    transition: transform 0.5s ease;
+}
 .R:hover {
     transform: scale(1.1);
 }
@@ -162,6 +181,7 @@ body {
 .aside-box {
     background: #f9f9f9;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     margin-bottom: 1rem;
     transition: box-shadow 0.3s ease;

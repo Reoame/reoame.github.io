@@ -10,12 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.staticfile.net/vue/3.0.5/vue.global.js"></script>
     <style>
-      
+        @media (max-width: 768px) {
+           .col-md-8,
+           .col-md-4 {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
+        <h1 style=" color: #87CEEB">Reoame的博客</h1>
         <div class="item_1 fade-in">
             <center>
                 <h1 class="R">R</h1>
@@ -81,8 +88,11 @@
             </div>
             <aside class="col-md-4 fade-in">
                 <div class="aside-box">
+                    <center>
+                        <div class="R_1">R</div>
+                    </center>
                     <h4 class="font-italic">关于我</h4>
-                    <p>一名广东广州的学生，热爱编程，喜欢分享，希望能与你交流！</p>
+                    <p id="text">一名广东广州的学生，热爱编程，喜欢分享，平常喜欢打羽毛球，喜欢英语，善于用英语和别人交流希望能与你交流！</p>
                 </div>
                 <div class="aside-box">
                     <h4 class="font-italic">标签</h4>
@@ -91,6 +101,11 @@
                     <div class="tag" onclick="go('tag.html?tag=技术')">技术</div>
                     <div class="tag" onclick="go('tag.html?tag=Github')">Github</div>
                     <div class="tag" onclick="go('tag.html?tag=编程')">编程</div>
+                </div>
+                <div class="aside-box">
+                    <div id="app">
+                        <blog></blog>
+                    </div>
                 </div>
                 <div class="aside-box">
                     <h4 class="font-italic">归档</h4>
@@ -193,6 +208,26 @@
                 console.log(`Selected date: ${selectedDate.toDateString()}`);
             }
         });
+        var post_amount = 5;
+        var tag = 5;
+        var app = Vue.createApp({})
+        app.component('blog',{
+            data(){
+                return{
+                    post_amount:post_amount,
+                    tag:tag
+                }
+            },
+            template: `
+            <div>
+                <div>
+                    <h4>累计发布{{post_amount}}篇文章</h4>
+                    <h4>{{tag}}个标签</h4>
+                </div>
+            </div>
+            `
+        })
+        app.mount('#app')
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
