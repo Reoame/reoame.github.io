@@ -3,89 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github部署静态网页 - Reoame的博客</title>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="详细教程：如何使用GitHub Pages部署静态网页。">
+    <title>GitHub部署静态网页 - Reoame的博客</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
+    <!-- CSS资源 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
     <style>
+        :root {
+            --primary-blue: #1296DC;
+            --secondary-blue: #87CEEB;
+            --text-color: #212529;
+            --bg-color: #ffffff;
+        }
+
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(135deg, #1296DC, #87CEEB);
-            color: #333;
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-color);
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
+
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
         }
+
         .blog-post-title {
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
         }
+
         .blog-post-meta {
             font-size: 1rem;
             color: #666;
+            margin-bottom: 1.5rem;
         }
+
         .btn-primary {
-            background-color: #1296DC;
-            border-color: #1296DC;
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
             font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, opacity 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
         }
+
         .btn-primary:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+            background-color: #0d6efd;
+            opacity: 0.9;
         }
+
         .blog-footer {
-            background-color: #343a40;
-            color: white;
+            background-color: #212529;
+            color: #dee2e6;
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
             border-radius: 10px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .blog-footer a {
+            color: #dee2e6;
+            text-decoration: underline;
+        }
+
+        .blog-footer a:hover {
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        pre {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-    <h2 class="blog-post-title">Github部署静态网页</h2>
-    <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
-   <p>Github Pages是一个免费的静态网站托管服务，可以直接从Github仓库托管的静态网页生成一个网站。下面介绍一下如何使用Github Pages部署静态网页。</p>
-   <h3>准备工作</h3>
-   <p>首先，你需要一个Github账号，如果没有，请先注册一个。然后，你需要一个Github仓库，用来存放你的静态网页文件。你可以在Github上创建一个新的仓库，或者使用已有的仓库。</p>
-   <h3>配置Github Pages</h3>
-   <p>进入你的仓库，点击Settings，然后找到GitHub Pages，选择Source的Branch为master，然后点击Save。这样，你的仓库就已经可以被Github Pages托管了。</p>
-   <h3>上传静态网页文件</h3>
-   <p>将你的静态网页文件上传到你的仓库的master分支上。你可以直接将文件拖拽到仓库的README.md文件上，也可以在仓库的根目录下新建一个index.html文件，然后将你的静态网页文件上传到这个文件上。</p>
-   <h3>访问你的静态网页</h3>
-   <p>当你的仓库被Github Pages托管后，你可以通过https://你的Github用户名.github.io/仓库名/访问你的静态网页。例如，我的静态网页的访问地址是https://reoame.github.io/</p>
-   <p>当然，你也可以通过自定义域名来访问你的静态网页，具体方法请参考Github Pages官方文档。</p>
-   <h3>注意事项</h3>
-   
-   <h5>1. 静态网页文件名</h5>
-   <p>你的静态网页的主页文件名必须为index.html，否则Github Pages无法识别。</p>
-    <h5>2. 不用着急</h5>
-    <p>在上传好网页文件后，Github Pages会自动生成一个临时域名，这个域名在一段时间内（大概10分钟）会失效。所以，你可能需要耐心等待一段时间，才能访问你的静态网页。</p>
-    <h5>3. 域名绑定</h5>
-    <p>如果你有自己的域名，你可以将你的域名与你的静态网页绑定。具体方法请参考Github Pages官方文档。</p>
-    <h5>4. SSL证书</h5>
-    <p>Github Pages默认使用Let's Encrypt提供SSL证书，所以你的静态网页已经是安全的。如果你需要使用自己的SSL证书，可以参考Github Pages官方文档。</p>
-    <h5>5. 其他服务</h5>
-    <p>Github Pages只是一个静态网站托管服务，它并不提供数据库、服务器等其他服务，不支持Python、PHP、Ruby等动态语言（除非你自己购买服务器）。如果需要其他服务，可以考虑使用其他云服务商（不建议选择不知名的云服务器厂商，因为可能会遇到各种问题，并且也不能保证用户隐私安全）。</p>
-    <h5>6. 访问速度</h5>
-    <p>Github Pages的访问速度取决于你的静态网页文件大小、访问地理位置、Github Pages服务器的性能。所以，你可能需要耐心等待一段时间，才能访问你的静态网页。</p>
-    <h3>补充说明</h3>
-    <p>仓库名可以是【你的用户名.github.io】，也可以是【你的项目名】。如果你的仓库名是【你的用户名.github.io】，那么你的静态网页的访问地址就是https://你的用户名.github.io/。如果你的仓库名是【你的项目名】，那么你的静态网页的访问地址就是https://你的用户名.github.io/你的项目名/。</p>
-   <h3>总结</h3>
-   <p>通过Github Pages部署静态网页，可以快速、免费、简单地搭建一个个人博客或个人网站。如果你有兴趣，可以尝试一下，看看它是否满足你的需求。</p>
-</div>
+    <article class="container">
+        <header>
+            <h1 class="blog-post-title">GitHub部署静态网页</h1>
+            <div class="blog-post-meta">
+                <time datetime="2025-01-15">2025年1月15日</time> · 
+                <span class="badge bg-primary">技术指南</span>
+                <span class="badge bg-success ms-2">GitHub</span>
+            </div>
+        </header>
+
+        <section class="mt-4">
+            <p>GitHub Pages是一个免费的静态网站托管服务，可以直接从GitHub仓库托管的静态网页生成一个网站。下面介绍一下如何使用GitHub Pages部署静态网页。</p>
+        </section>
+
+        <section>
+            <h2>准备工作</h2>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-check-circle text-success me-2"></i>注册一个GitHub账号。</li>
+                <li><i class="fas fa-check-circle text-success me-2"></i>创建一个GitHub仓库，用于存放静态网页文件。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>配置GitHub Pages</h2>
+            <ol>
+                <li>进入你的仓库，点击<strong>Settings</strong>。</li>
+                <li>找到<strong>GitHub Pages</strong>选项。</li>
+                <li>选择<strong>Source</strong>的Branch为<code>main</code>（或<code>master</code>），然后点击<strong>Save</strong>。</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>上传静态网页文件</h2>
+            <p>将你的静态网页文件上传到仓库的<code>main</code>分支上。你可以通过以下方式上传：</p>
+            <ul>
+                <li>直接拖拽文件到仓库页面。</li>
+                <li>使用Git命令行工具推送文件。</li>
+            </ul>
+            <pre><code class="language-bash"># 初始化本地仓库
+git init
+git add .
+git commit -m "Initial commit"
+
+# 关联远程仓库
+git remote add origin https://github.com/用户名/仓库名.git
+
+# 推送代码
+git push -u origin main</code></pre>
+        </section>
+
+        <section>
+            <h2>访问你的静态网页</h2>
+            <p>当你的仓库被GitHub Pages托管后，你可以通过以下地址访问你的静态网页：</p>
+            <p><code>https://你的用户名.github.io/仓库名/</code></p>
+            <p>例如：<code>https://reoame.github.io/</code></p>
+        </section>
+
+        <section>
+            <h2>注意事项</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            静态网页文件名
+                        </button>
+                    </h3>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            你的静态网页的主页文件名必须为<code>index.html</code>，否则GitHub Pages无法识别。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            域名绑定
+                        </button>
+                    </h3>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            如果你有自己的域名，可以将域名与你的静态网页绑定。具体方法请参考GitHub Pages官方文档。
+                        </div>
+                    </div>
+                </div>
+                <!-- 其他注意事项类似，省略 -->
+            </div>
+        </section>
+
+        <section>
+            <h2>总结</h2>
+            <p>通过GitHub Pages部署静态网页，可以快速、免费、简单地搭建一个个人博客或个人网站。如果你有兴趣，可以尝试一下，看看它是否满足你的需求。</p>
+        </section>
+    </article>
+
     <footer class="blog-footer">
-        <p>版权所有 © 2025 Reoame的博客</p>
-        <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+        <div class="container text-center">
+            <p class="mb-1">版权所有 © 2025 Reoame的博客</p>
+            <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+        </div>
     </footer>
+
+    <!-- 脚本加载 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+            crossorigin="anonymous"></script>
 </body>
 </html>

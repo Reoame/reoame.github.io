@@ -3,93 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于Github无法访问的解决办法 - Reoame的博客</title>
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="解决GitHub无法访问的常见问题及实用工具推荐。">
+    <title>关于GitHub无法访问的解决办法 - Reoame的博客</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
+    <!-- CSS资源 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
     <style>
+        :root {
+            --primary-blue: #1296DC;
+            --secondary-blue: #87CEEB;
+            --text-color: #212529;
+            --bg-color: #ffffff;
+        }
+
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(135deg, #1296DC, #87CEEB);
-            color: #333;
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--text-color);
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
+
         .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
+            background: var(--bg-color);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
         }
+
         .blog-post-title {
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
         }
+
         .blog-post-meta {
             font-size: 1rem;
             color: #666;
+            margin-bottom: 1.5rem;
         }
+
         .btn-primary {
-            background-color: #1296DC;
-            border-color: #1296DC;
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
             font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, opacity 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
         }
+
         .btn-primary:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+            background-color: #0d6efd;
+            opacity: 0.9;
         }
+
         .blog-footer {
-            background-color: #343a40;
-            color: white;
+            background-color: #212529;
+            color: #dee2e6;
             text-align: center;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             margin-top: 2rem;
             border-radius: 10px;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        .blog-footer a {
+            color: #dee2e6;
+            text-decoration: underline;
+        }
+
+        .blog-footer a:hover {
+            text-decoration: none;
+            color: var(--primary-blue);
+        }
+
+        pre {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="blog-post-title">关于GitHub无法访问的解决办法</h1>
-        <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
-        
-        <h2>什么是GitHub？</h2>
-        <p>GitHub是一个面向开源及私有软件项目的托管平台，它支持Git作为唯一的版本控制系统格式。GitHub提供了各种Git客户端，如GitHub Desktop、GitKraken、SourceTree等，并且GitHub Pages提供了静态页面托管服务。GitHub帮助人们使用版本控制工具（如Git）来管理代码，并支持分享和协作开发项目。GitHub拥有超过5000万注册用户，其中包括世界各地的程序员、设计师、作家、音乐家、科学家、学生等。</p>
-        
-        <h2>为什么GitHub无法访问？</h2>
-        <p>GitHub无法访问可能由多种原因造成。以下是一些常见的原因：</p>
-        <ul>
-            <li><strong>网络连接问题：</strong> 检查您的网络连接是否正常，确保能够访问其他网站。</li>
-            <li><strong>DNS解析问题：</strong> 检查GitHub域名解析是否正确，有时DNS缓存可能会导致无法访问。</li>
-            <li><strong>防火墙或代理设置：</strong> 检查防火墙或代理设置是否阻止了GitHub的访问。</li>
-            <li><strong>GitHub服务中断：</strong> GitHub偶尔会因为维护或其他原因导致服务中断。</li>
-        </ul>
-        
-        <h2>如何解决GitHub无法访问？</h2>
-        <p>以下是一些解决GitHub无法访问的方法：</p>
-        <ul>
-            <li><strong>检查网络连接：</strong> 确保您的网络连接正常，尝试访问其他网站以确认。</li>
-            <li><strong>清除DNS缓存：</strong> 清除DNS缓存可以解决域名解析问题。在Windows系统中，可以通过命令提示符运行`ipconfig /flushdns`；在macOS和Linux系统中，可以通过终端运行`sudo killall -HUP mDNSResponder`或`sudo systemctl restart NetworkManager`。</li>
-            <li><strong>检查防火墙设置：</strong> 确保防火墙没有阻止GitHub的访问。您可以在防火墙设置中添加GitHub的域名（如`github.com`）到允许列表。</li>
-            <li><strong>更换网络环境：</strong> 尝试使用不同的网络环境，如切换到移动数据网络或使用不同的Wi-Fi网络。</li>
-            <li><strong>更换浏览器：</strong> 尝试使用其他浏览器访问GitHub，以排除浏览器缓存或设置问题。</li>
-            <li><strong>刷新页面：</strong> 有时简单地刷新页面可以解决问题。</li>
-            <li><strong>使用GitHub镜像站点：</strong> 如果GitHub在中国大陆访问困难，可以尝试使用GitHub的镜像站点，如Gitee（码云）。</li>
-        </ul>
-        
-        <h2>一些软件和插件推荐</h2>
-        <p>以下是一些可以帮助解决GitHub访问问题的软件和插件：</p>
-        <ul>
-            <li><strong>Watt Toolkit：</strong> 一款开源的网络分析工具，可以用来检查网络连接、域名解析、防火墙设置等。</li>
-            <li><strong>FastGithub：</strong> 一款GitHub客户端，可以加速访问GitHub，并提供更好的体验。</li>
-            <li><strong>Gitee（码云）：</strong> GitHub在中国大陆的镜像站点，可以方便地访问和托管项目。</li>
-        </ul>
-    </div>
+    <article class="container">
+        <header>
+            <h1 class="blog-post-title">关于GitHub无法访问的解决办法</h1>
+            <div class="blog-post-meta">
+                <time datetime="2025-01-15">2025年1月15日</time> · 
+                <span class="badge bg-primary">技术指南</span>
+                <span class="badge bg-success ms-2">GitHub</span>
+            </div>
+        </header>
+
+        <section class="mt-4">
+            <h2>什么是GitHub？</h2>
+            <p>GitHub是一个面向开源及私有软件项目的托管平台，它支持Git作为唯一的版本控制系统格式。GitHub提供了各种Git客户端，如GitHub Desktop、GitKraken、SourceTree等，并且GitHub Pages提供了静态页面托管服务。GitHub帮助人们使用版本控制工具（如Git）来管理代码，并支持分享和协作开发项目。GitHub拥有超过5000万注册用户，其中包括世界各地的程序员、设计师、作家、音乐家、科学家、学生等。</p>
+        </section>
+
+        <section>
+            <h2>为什么GitHub无法访问？</h2>
+            <p>GitHub无法访问可能由多种原因造成。以下是一些常见的原因：</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-network-wired text-primary me-2"></i><strong>网络连接问题：</strong> 检查您的网络连接是否正常，确保能够访问其他网站。</li>
+                <li><i class="fas fa-server text-primary me-2"></i><strong>DNS解析问题：</strong> 检查GitHub域名解析是否正确，有时DNS缓存可能会导致无法访问。</li>
+                <li><i class="fas fa-shield-alt text-primary me-2"></i><strong>防火墙或代理设置：</strong> 检查防火墙或代理设置是否阻止了GitHub的访问。</li>
+                <li><i class="fas fa-tools text-primary me-2"></i><strong>GitHub服务中断：</strong> GitHub偶尔会因为维护或其他原因导致服务中断。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>如何解决GitHub无法访问？</h2>
+            <p>以下是一些解决GitHub无法访问的方法：</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-wifi text-success me-2"></i><strong>检查网络连接：</strong> 确保您的网络连接正常，尝试访问其他网站以确认。</li>
+                <li><i class="fas fa-trash text-success me-2"></i><strong>清除DNS缓存：</strong> 清除DNS缓存可以解决域名解析问题。在Windows系统中，可以通过命令提示符运行<code>ipconfig /flushdns</code>；在macOS和Linux系统中，可以通过终端运行<code>sudo killall -HUP mDNSResponder</code>或<code>sudo systemctl restart NetworkManager</code>。</li>
+                <li><i class="fas fa-fire text-success me-2"></i><strong>检查防火墙设置：</strong> 确保防火墙没有阻止GitHub的访问。您可以在防火墙设置中添加GitHub的域名（如<code>github.com</code>）到允许列表。</li>
+                <li><i class="fas fa-sync-alt text-success me-2"></i><strong>更换网络环境：</strong> 尝试使用不同的网络环境，如切换到移动数据网络或使用不同的Wi-Fi网络。</li>
+                <li><i class="fas fa-browser text-success me-2"></i><strong>更换浏览器：</strong> 尝试使用其他浏览器访问GitHub，以排除浏览器缓存或设置问题。</li>
+                <li><i class="fas fa-redo text-success me-2"></i><strong>刷新页面：</strong> 有时简单地刷新页面可以解决问题。</li>
+                <li><i class="fas fa-globe-asia text-success me-2"></i><strong>使用GitHub镜像站点：</strong> 如果GitHub在中国大陆访问困难，可以尝试使用GitHub的镜像站点，如Gitee（码云）。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>一些软件和插件推荐</h2>
+            <p>以下是一些可以帮助解决GitHub访问问题的软件和插件：</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-toolbox text-info me-2"></i><strong>Watt Toolkit：</strong> 一款开源的网络分析工具，可以用来检查网络连接、域名解析、防火墙设置等。</li>
+                <li><i class="fas fa-rocket text-info me-2"></i><strong>FastGithub：</strong> 一款GitHub客户端，可以加速访问GitHub，并提供更好的体验。</li>
+                <li><i class="fas fa-code-branch text-info me-2"></i><strong>Gitee（码云）：</strong> GitHub在中国大陆的镜像站点，可以方便地访问和托管项目。</li>
+            </ul>
+        </section>
+    </article>
 
     <footer class="blog-footer">
-        <p>版权所有 © 2025 Reoame的博客</p>
-        <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+        <div class="container text-center">
+            <p class="mb-1">版权所有 © 2025 Reoame的博客</p>
+            <p>模板基于 <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+        </div>
     </footer>
+
+    <!-- 脚本加载 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+            crossorigin="anonymous"></script>
 </body>
 </html>
