@@ -3,6 +3,12 @@ import subprocess
 
 def deploy():
     try:
+        # 检查是否有新的更改
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+        if not status.stdout.strip():
+            print("工作目录已经干净，没有新的更改需要提交。")
+            return
+
         subprocess.run(["git", "add", "."], check=True)
         subprocess.run(["git", "commit", "-m", "update"], check=True)
         subprocess.run(["git", "push", "origin", "master"], check=True)
@@ -10,7 +16,7 @@ def deploy():
     except subprocess.CalledProcessError as e:
         print(f"发生异常: {e}")
         print(f"命令 {' '.join(e.cmd)} 返回非零退出状态 {e.returncode}")
-        print(f"详细错误信息: {e.output.decode() if e.output else '无详细输出'}")
+        print(f"详细错误信息: {e.output if e.output else '无详细输出'}")
     except Exception as e:
         print(f"发生异常: {e}")
 
@@ -34,7 +40,7 @@ def deploy_first():
     except subprocess.CalledProcessError as e:
         print(f"发生异常: {e}")
         print(f"命令 {' '.join(e.cmd)} 返回非零退出状态 {e.returncode}")
-        print(f"详细错误信息: {e.output.decode() if e.output else '无详细输出'}")
+        print(f"详细错误信息: {e.output if e.output else '无详细输出'}")
     except Exception as e:
         print(f"发生异常: {e}")
 
