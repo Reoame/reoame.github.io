@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="functions.js"></script>
     <script src="https://cdn.staticfile.net/vue/3.0.5/vue.global.js"></script>
     <style>
         @media (max-width: 768px) {
@@ -216,7 +217,7 @@
                 console.log(`Selected date: ${selectedDate.toDateString()}`);
             }
         });
-        var post_amount = 5;
+        var post_amount = 6;
         var tag = 5;
         var app = Vue.createApp({})
         app.component('blog',{
