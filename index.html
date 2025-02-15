@@ -19,6 +19,35 @@
                 width: 100%;
             }
         }
+        .search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    display: none;
+}
+
+.search-result-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-result-item:hover {
+    background: #f8f9fa;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -79,14 +108,14 @@
                     <p class="blog-post-meta">2025年1月16日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>Github部署静态网页</p>
                     <div class="post-tag">Github</div>
-                    <a href="#" class="btn btn-primary">阅读更多</a>
+                    <a href="4.html" class="btn btn-primary">阅读更多</a>
                 </div>
                 <div class="blog-post fade-in">
                     <h2 class="blog-post-title">关于Github无法访问的解决办法</h2>
                     <p class="blog-post-meta">2025年1月15日 by <a href="#" class="text-black">Reoame</a></p>
                     <p>关于Github无法访问的解决办法</p>
                     <div class="post-tag">Github</div>
-                    <a href="#" class="btn btn-primary">阅读更多</a>
+                    <a href="3.html" class="btn btn-primary">阅读更多</a>
                 </div>
         
                 <hr>
@@ -95,6 +124,7 @@
                 </div>
             </div>
             <aside class="col-md-4 fade-in">
+          
                 <div class="aside-box">
                     <center>
                         <div class="R_1">R</div>
@@ -156,8 +186,10 @@
     <footer class="blog-footer fade-in">
         <p>版权所有 © 2025 Reoame的博客</p>
         <p>访问可能有点慢</p>
+        <p id="date"></p>
     </footer>
     <script>
+        
         function go(url) {
             window.location.href = url;
         }
@@ -237,9 +269,15 @@
             `
         })
         app.mount('#app')
+
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        var dt = date()
+        document.getElementById("date").innerText = dt
+    </script>
 </body>
 </html>
