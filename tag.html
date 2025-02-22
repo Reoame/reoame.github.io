@@ -78,12 +78,21 @@
                 <div class="aside-box">
                     <h4 class="font-italic">归档</h4>
                     <ol class="list-unstyled mb-0">
+                        <li>
+                            <a href="#">2025年2月</a>
+                            <ul>
+                                <li><a href="7.html">我的笔记软件Qnote</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">2025年1月</a>
                             <ul>
-                                <li><a href="#">Github部署静态网页</a></li>
-                                <li><a href="#">关于Github无法访问的解决办法</a></li>
-                                <li><a href="#">如何学习编程</a></li>
-                                <li><a href="#">我的一个小发明</a></li>
+                                <li><a href="7.html">我的笔记软件Qnote</a></li>
+                                <li><a href="6.html">把项目部署到Github</a></li>
+                                <li><a href="5.html">AI的未来发展</a></li>
+                                <li><a href="4.html">Github部署静态网页</a></li>
+                                <li><a href="3.html">关于Github无法访问的解决办法</a></li>
+                                <li><a href="2.html">如何学习编程</a></li>
+                                <li><a href="1.html">我的一个小发明</a></li>
                             </ul>
                         </li>
                     </ol>
@@ -131,9 +140,8 @@
 
             // 清空现有的文章
             postsContainer.innerHTML = `<h3 class="pb-3 mb-4 font-italic border-bottom fade-in">分类: ${tag}</h3>`;
-
-            // 示例数据，实际应用中可以从服务器获取
             const posts = [
+            { title: "我的笔记软件Qnote", date: "2025年2月22日", author: "Reoame", content: "我的笔记软件Qnote", tag: "编程", url: "7.html" },
             { title: "把项目部署到Github", date: "2025年1月31日", author: "Reoame", content: "如何把项目部署到Github", tag: "Github", url: "6.html" },
                 { title: "我的一个小发明", date: "2025年1月14日", author: "Reoame", content: "最近我做了一个小发明，想分享给大家...", tag: "Python", url: "1.html" },
                 { title: "如何学习编程", date: "2025年1月15日", author: "Reoame", content: "编程是一项非常有用的技能，无论你是想进入技术行业，还是仅仅想提升自己的逻辑思维能力，学习编程都是一个不错的选择。", tag: "编程", url: "2.html" },

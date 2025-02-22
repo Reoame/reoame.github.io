@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="详细教程：如何将项目部署到GitHub并启用GitHub Pages">
+    <title>我的笔记软件Qnote - Reoame的博客</title>
+    
+    <!-- 资源预加载 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
+    <!-- CSS资源 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    
+    <style>
+        :root {
+            --primary-blue: #1296DC;
+            --secondary-blue: #87CEEB;
+        }
+
+        body {
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: #212529;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-post-title {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+
+        h2, h3 {
+            margin-top: 2rem;
+            scroll-margin-top: 1rem;
+        }
+
+        pre {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        .blog-footer {
+            background: #212529;
+            color: #dee2e6;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="container">
+        <header>
+            <h1 class="blog-post-title">我的笔记软件Qnote</h1>
+            <div class="blog-post-meta mt-3">
+                <time datetime="2025-01-15">2025年2月22日</time> · 
+                <span class="badge bg-success ms-2">编程</span>
+            </div>
+        </header>
+        <hr>
+        <div class="blog-post-content">
+            <p>Qnote是一款基于 Python 编写的跨平台的 Markdown 笔记应用，使用 Python 构建，可以快速部署到Windows系统上。</p>
+            <h2>安装</h2>
+            <p>Qnote 目前支持 Windows 系统，你可以从 <a href="https://github.com/reoame/qnote/releases">GitHub Releases</a> 页面下载安装包。</p>
+            <h2>使用</h2>
+            <p>Qnote 使用 Markdown 语法来编写笔记，你可以在编辑器中直接编写笔记内容，也可以使用快捷键快速插入常用语法。</p>
+            <h2>使用规范🤗</h2>
+            <p>Qnote 是一个 Markdown 笔记应用，它的使用规范和 Markdown 语法一样，你可以参考 <a href="https://www.markdownguide.org/basic-syntax/">Markdown 语法指南</a> 来编写笔记。</p>
+            <p>在使用这个软件过程中不允许出现任何侵犯他人权益的内容，包括但不限于色情、暴力、赌博、政治、反动、诽谤等违反法律的内容。</p>
+            <p>不能用于商业用途，请不要将 Qnote 用于任何违法用途。</p>
+            <h2>结语</h2>
+            <p>Qnote 是一个开源的跨平台的 Markdown 笔记应用，你可以在 GitHub Releases 页面下载安装包。</p>
+            <p>Qnote 还处于开发阶段，它的功能还不完善，欢迎你在 GitHub 上提出你的宝贵意见。</p>
+        </div>
+
+        
+    </article>
+
+    <footer class="blog-footer mt-auto">
+        <div class="container text-center">
+            <p class="mb-1">© 2025 Reoame的博客 · 遵循<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="text-reset"> CC BY-NC-SA 4.0 协议</a></p>
+            <div class="social-links">
+                <a href="#" class="text-white me-3"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-stack-overflow"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本加载 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        // 自动检测代码语言
+        hljs.highlightAll();
+        
+        // 添加代码行号
+        document.querySelectorAll('pre code').forEach((block) => {
+            const lines = block.innerHTML.split('\n');
+            block.innerHTML = lines.map((line, index) => 
+                `<span class="line-number">${index + 1}</span>${line}`
+            ).join('\n');
+        });
+    </script>
+</body>
+</html>
