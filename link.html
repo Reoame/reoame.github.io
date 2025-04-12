@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友链 - Reoame's blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <style>
+        :root {
+            --primary-100: #1F3A5F;
+            --primary-200: #4d648d;
+            --primary-300: #acc2ef;
+            --accent-100: #3D5A80;
+            --accent-200: #cee8ff;
+            --text-100: #FFFFFF;
+            --text-200: #e0e0e0;
+            --bg-100: #0F1C2E;
+            --bg-200: #1f2b3e;
+            --bg-300: #374357;
+            
+            --gradient-1: linear-gradient(135deg, var(--primary-100) 0%, var(--bg-100) 100%);
+            --gradient-2: linear-gradient(45deg, var(--primary-200), var(--accent-100));
+        }
+
+        body {
+            background: var(--bg-100);
+            color: var(--text-200);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+
+        #stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--primary-300), transparent 60%),
+                radial-gradient(circle at 80% 20%, var(--accent-200), transparent 60%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        #layout {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 左侧边栏 */
+        #sidebar {
+            width: 300px;
+            background: var(--gradient-1);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-200);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-header h2 {
+            color: var(--text-100);
+            font-size: 2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .sidebar-header h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 80%;
+            background: var(--accent-200);
+            border-radius: 2px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 0;
+            color: var(--text-200);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent-200);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-menu a:hover {
+            background: var(--bg-200);
+            transform: translateX(10px);
+        }
+
+        .sidebar-menu a:hover::before {
+            transform: scaleY(1);
+        }
+
+        .sidebar-menu .active {
+            background: var(--bg-200);
+            color: var(--text-100);
+            font-weight: 500;
+        }
+
+        /* 主内容区 */
+        #main {
+            flex: 1;
+            margin: 0 300px 0 300px;
+            padding: 3rem 4rem;
+            position: relative;
+            transition: margin 0.3s;
+        }
+
+        /* 右侧边栏 */
+        #right-sidebar {
+            width: 280px;
+            background: var(--bg-200);
+            padding: 1rem;
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.3);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+        }
+
+        .widget {
+            background: var(--bg-300);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            color: var(--text-100);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-200);
+        }
+
+        /* 友链列表 */
+        .friend-link {
+            background: var(--bg-200);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .friend-link::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--gradient-2);
+            opacity: 0.1;
+            transform: rotate(45deg);
+            transition: opacity 0.3s ease;
+        }
+
+        .friend-link h4 {
+            color: var(--text-100);
+            border-left: 4px solid var(--accent-200);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .friend-link ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .friend-link li {
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--bg-300);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .friend-link li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .friend-link a {
+            color: var(--accent-200);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 社交媒体 */
+        .social-card {
+            background: var(--bg-300);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .social-card:hover {
+            transform: translateX(10px);
+        }
+
+        /* 标签云 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--primary-200);
+            color: var(--text-100);
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: var(--accent-100);
+            transform: translateY(-2px);
+        }
+
+        /* 日历 */
+        .calendar {
+            background: var(--bg-300);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .calendar-header {
+            background: var(--accent-100);
+            color: var(--text-100);
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+
+        .calendar-day {
+            padding: 0.8rem;
+            border-radius: 6px;
+            background: var(--bg-200);
+            transition: all 0.2s;
+        }
+
+        .today {
+            background: var(--accent-200) !important;
+            color: var(--text-100);
+        }
+
+        /* 暗黑模式切换 */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            #main {
+                margin-right: 0;
+            }
+            #right-sidebar {
+                transform: translateX(100%);
+                width: 280px;
+            }
+            #right-sidebar.active {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #layout {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 80%;
+                transform: translateX(-100%);
+            }
+
+            #sidebar.active {
+                transform: translateX(0);
+            }
+
+            #main {
+                margin: 0 !important;
+                padding: 1rem;
+                min-height: calc(100vh - 60px);
+            }
+
+            #right-sidebar {
+                width: 90%;
+                right: -90%;
+                top: 60px;
+                height: calc(100vh - 60px);
+            }
+
+            .friend-link {
+                padding: 1rem;
+            }
+        }
+        [data-theme="light"] {
+    --primary-100: #F0F8FF;
+    --primary-200: #A0E0F8;
+    --primary-300: #808080;
+    --accent-100: #ADD8E6;
+    --accent-200: #66B2FF;
+    --text-100: #000000;
+    --text-200: #696969;
+    --bg-100: #FFFFFF;
+    --bg-200: #E6E6FA;
+    --bg-300: #FFFAF0;
+    
+    --gradient-1: linear-gradient(135deg, var(--primary-100) 0%, var(--bg-100) 100%);
+    --gradient-2: linear-gradient(45deg, var(--primary-200), var(--accent-100));
+}
+    </style>
+</head>
+<body data-theme="dark">
+    <button id="theme-toggle" class="dark-mode-toggle">🌞</button>
+
+    <div id="stars"></div>
+    <div id="layout">
+        <!-- 左侧边栏 -->
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <h2>Reoame's blog</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="active">🏠 首页</a>
+        
+                <a href="link.html">🔗 友链</a>
+                <a href="message.html">✍️ 留言板</a>
+                <a href="archive.html">📦 归档</a>
+                <a href="about.html">🌟 关于</a>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main id="main">
+            <div class="friend-link">
+                <h4>📎 博客友链</h4>
+                <p class="text-muted">期待与更多优秀博客交换友链</p>
+                <ul>
+                    <li>
+                        <div class="friend-card">
+                            <h5>虚位以待</h5>
+                            <p>这个位置等你来占座~</p>
+                            <p>联系邮箱：reoame_github@outlook.com</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </main>
+
+        <!-- 右侧边栏 -->
+        <aside id="right-sidebar">
+            <div class="widget">
+                <img src="head.jpg" style="width: 100%;border-radius:50%;">
+                <h1 style="text-align:center;margin-top:10px;">Reoame</h1>
+            </div>
+            <div class="widget">
+                <h3 class="widget-title">🕒 当前时间</h3>
+                <div id="live-clock" class="clock-box"></div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">📅 日历</h3>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <span id="prev-month">←</span>
+                        <div id="month-year"></div>
+                        <span id="next-month">→</span>
+                    </div>
+                    <div class="days" id="calendar-days"></div>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">🏷️ 热门标签</h3>
+                <div class="tag-cloud">
+                    <div class="tag">AI</div>
+                    <div class="tag">Python</div>
+                    <div class="tag">GitHub</div>
+                    <div class="tag">编程</div>
+                </div>
+            </div>
+            <div class="widget">
+                <p onclick="window.location.href='https://github.com/reoame'">Github</p>
+                <p onclick="window.location.href='https://space.bilibili.com/3546573363481311?spm_id_from=333.1007.0.0'">bilibili</p>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // 实时时钟
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('zh-CN', { 
+                hour12: false, 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+            document.getElementById('live-clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+
+        // 日历功能
+        let currentDate = new Date();
+        const renderCalendar = (year, month) => {
+            const daysContainer = document.getElementById('calendar-days');
+            const monthYear = document.getElementById('month-year');
+            
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            
+            daysContainer.innerHTML = '';
+            
+            // 填充空白
+            for(let i = 0; i < firstDay; i++){
+                daysContainer.appendChild(document.createElement('div'));
+            }
+            
+            // 填充日期
+            for(let day = 1; day <= daysInMonth; day++){
+                const dayElement = document.createElement('div');
+                dayElement.textContent = day;
+                if(day === new Date().getDate() && 
+                   month === new Date().getMonth() && 
+                   year === new Date().getFullYear()){
+                    dayElement.classList.add('today');
+                }
+                daysContainer.appendChild(dayElement);
+            }
+            
+            monthYear.textContent = `${year}年${month + 1}月`;
+        }
+
+        document.getElementById('prev-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        });
+
+        document.getElementById('next-month').addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        });
+
+        // 初始化日历
+        renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
+        // 移动端菜单切换
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', e => {
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    document.getElementById('sidebar').classList.add('active');
+                } else {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            }
+        });
+
+        // 星空动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.style.cssText = `
+                position: absolute;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                width: ${Math.random() * 3}px;
+                height: ${Math.random() * 3}px;
+                background: rgba(255,255,255,${Math.random()});
+                border-radius: 50%;
+                animation: twinkle ${2 + Math.random() * 3}s infinite;
+            `;
+            document.getElementById('stars').appendChild(star);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+    // 从localStorage中获取保存的主题
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark'); // 默认主题
+    }
+
+    // 切换按钮图标
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'light') {
+        themeToggleButton.textContent = '🌞';
+    } else {
+        themeToggleButton.textContent = '🌙';
+    }
+
+    // 添加点击事件监听器来切换主题
+    themeToggleButton.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme); // 保存新的主题选择到localStorage
+
+        // 切换按钮图标
+        if (newTheme === 'light') {
+            this.textContent = '🌞';
+        } else {
+            this.textContent = '🌙';
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>
